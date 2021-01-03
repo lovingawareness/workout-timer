@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Workout Timer</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+  <style>
+    #app {
+      font-size: 40vh;
+      width: 100%;
+      background: white;
+    }
+    .startButton button {
+      background: pink;
+      font-size: 90vh;
+      width: 100vw;
+      height: 100vh;
+    }
+    .timer {
+      text-align: center;
+    }
+    .congrats {
+      font-size: 90vmin;
+      text-align: center;
+      vertical-align: middle;
+    }
+    .workout {
+      color: white;
+      background-color: red;
+    }
+    .rest {
+      color: black;
+      background-color: green;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <div v-if="timerStarted && !timerFinished">
+      <div class="timer">
+        <div class="rep">{{ rep }}</div>
+        <div :class="inWorkout?'workout':'rest'">{{ timeLeft }}</div>
+      </div>
+    </div>
+    <div v-else-if="timerStarted && timerFinished">
+      <div class="congrats">
+        🥳
+      </div>
+    </div> 
+    <div v-else>
+      <div class="startButton">
+        <button v-on:click="startTimer()">💪</button>
+      </div>
+    </div>
+  </div>
+  <audio id="doneSound">
+    <source src="/static/penelope-done.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="restSound">
+    <source src="/static/penelope-rest.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="workoutSound">
+    <source src="/static/penelope-workout.mp3" type="audio/mpeg">
+  </audio>
+</body>
+<script src="/static/app.js"></script>
+</html>
