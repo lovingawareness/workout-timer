@@ -1,6 +1,6 @@
 var speakText = function(text) {
-  var voices = window.speechSynthesis.getVoices()
 /* 
+  var voices = window.speechSynthesis.getVoices()
   for(var i in voices) {
     console.log(`${i}: ${voices[i].name}`)
   }
@@ -10,7 +10,7 @@ var speakText = function(text) {
   //  msg.voice = voices[49]
   msg.text = text
   msg.lang = 'en'
-//  msg.rate = 0.8
+  // msg.rate = 0.8
   speechSynthesis.speak(msg)
 }
 
