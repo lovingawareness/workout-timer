@@ -6,24 +6,12 @@ var speakText = function(text) {
   }
 */
   var msg = new SpeechSynthesisUtterance()
-  msg.voice = voices[49]
+  // On Mac Google Chrome, this is Google US English
+  //  msg.voice = voices[49]
   msg.text = text
   msg.lang = 'en'
-  msg.rate = 0.8
+//  msg.rate = 0.8
   speechSynthesis.speak(msg)
-/* 
-  switch(text) {
-    case 'done': 
-     document.getElementById('doneSound').play()
-     break
-    case 'rest':
-      document.getElementById('restSound').play()
-      break
-    case 'workout':
-      document.getElementById('workoutSound').play()
-      break
-  } 
-*/
 }
 
 var app = new Vue({
